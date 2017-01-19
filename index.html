@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 <style>
-html {
-  text-align: center;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #333;
-}
+    html {
+        text-align: center;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #333;
+    }
 
-body{
-  margin-top: 50px;
-  font-size: 100%;
-}
+    body {
+        margin-top: 50px;
+        font-size: 100%;
+    }
 
-
+    button {
+      margin-top: 10px;
+      border-radius: 12px;
+      border: none;
+      background-color: #4CAF50;
+    }
 </style>
+
 <head>
     <title>Pancake Me!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -21,11 +27,10 @@ body{
 
 
 <body>
-    <form>
-        Height (CM)<br>
-        <input type="number" id="height"><br>
-    </form>
-    <button onclick="pancake(document.getElementById('height').value)">Click me</button>
+    Height (cm)<br>
+    <input type="number" id="height"><br>
+
+    <button onclick="pancake(document.getElementById('height').value)">Pancake Me!</button>
 
 </body>
 
@@ -35,7 +40,7 @@ body{
     function pancake(height) {
         var pHeight = (height / 1.7).toFixed(2);
         document.body.innerHTML = "";
-        document.body.innerHTML = pHeight + " American style pancakes";
+        document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
     }
 </script>
 
