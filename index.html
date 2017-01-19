@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
+<style>
+html {
+  text-align: center;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #333;
+}
 
+body{
+  margin-top: 50px;
+  font-size: 100%;
+}
+
+
+</style>
 <head>
     <title>Pancake Me!</title>
-    <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
@@ -21,7 +33,7 @@
 
 <script>
     function pancake(height) {
-        var pHeight = height / 1.7;
+        var pHeight = (height / 1.7).toFixed(2);
         document.body.innerHTML = "";
         document.body.innerHTML = pHeight + " American style pancakes";
     }
