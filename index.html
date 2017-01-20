@@ -13,10 +13,18 @@
     }
 
     button {
-      margin-top: 10px;
-      border-radius: 12px;
-      border: none;
-      background-color: #4CAF50;
+        margin-top: 10px;
+        border-radius: 12px;
+        border: none;
+        background-color: #4CAF50;
+    }
+
+    .cm{
+      margin-top: 50px;
+    }
+
+    .feet{
+      margin-top: 50px;
     }
 </style>
 
@@ -25,23 +33,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
-
 <body>
-    Height (cm)<br>
-    <input type="number" id="height"><br>
+    <div class="cm">
+        Height (cm)<br>
+        <input type="number" id="height"><br>
+        <button onclick="pancake(document.getElementById('height').value)">Pancake Me!</button>
+    </div>
 
-    <button onclick="pancake(document.getElementById('height').value)">Pancake Me!</button>
+    <div class="feet">
+      Height (feet)<br>
+        <table style="margin:0px auto; width:50px">
+            <tr>
+                <th>Feet</th>
+                <th>Inches</th>
+            </tr>
+            <tr>
+                <td><input type="number" id="feet"></td>
+                <td><input type="number" id="inches"></td>
+            </tr>
+        </table>
 
+        <button onclick="pancakeFeet(parseInt(document.getElementById('feet').value),
+        parseInt(document.getElementById('inches').value))">Pancake Me!</button>
+    </div>
 </body>
-
-
 
 <script>
     function pancake(height) {
+        var pHeight = (height / 1.7).toFixed(1);
+        document.body.innerHTML = "";
+        document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
+    }
+
+    function pancakeFeet(f, i) {
+        var height = ((f * 12) + i) * 2.54;
         var pHeight = (height / 1.7).toFixed(2);
         document.body.innerHTML = "";
         document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
     }
 </script>
-
 </html>
