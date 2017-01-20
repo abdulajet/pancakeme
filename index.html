@@ -28,6 +28,10 @@
       margin-top: 100px;
     }
 
+    p{
+      word-wrap: break-word;
+    }
+
     .cm{
       margin-top: 50px;
     }
@@ -43,7 +47,7 @@
 </head>
 
 <body>
-  <h1>Calculate your height in pancakes!</h1>
+  <h1>Calculate your height in pancakes! 🥞</h1>
 
     <div class="cm">
         Height (cm)<br>
@@ -76,26 +80,34 @@
 <script>
     function pancake(height) {
         var pHeight = (height / 1.7).toFixed(1);
-        document.body.innerHTML = "";
-        document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
-        tweet(pHeight);
+        text(pHeight);
     }
 
     function pancakeFeet(f, i) {
         var height = ((f * 12) + i) * 2.54;
-        var pHeight = (height / 1.7).toFixed(2);
-        document.body.innerHTML = "";
-        document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
-        tweet(pHeight);
+        var pHeight = (height / 1.7).toFixed(1);
+        text(pHeight);
     }
 
-    function tweet(pHeight){
-      var twitterUrl = "twitter.com/intent/tweet?text=I am " + pHeight + " pancakes tall! Via http://abdulajet.me/pancakeme by @abdulajet";
+    function text(pHeight){
+      document.body.innerHTML = "";
+      document.body.innerHTML = "You are " + pHeight + " pancakes tall!";
+
+      var twitterUrl = "twitter.com/intent/tweet?text=I am " + pHeight + " pancakes tall! 🥞 Via http://abdulajet.me/pancakeme by @abdulajet";
       twitterUrl = encodeURI(twitterUrl);
 
       var p = document.createElement('p');
       p.innerHTML += "<a href='https://" + twitterUrl + "'>Tweet this</a>"
       document.body.appendChild(p);
+
+      var emojiP = document.createElement('p');
+
+      for (i = 0; i < pHeight; i++){
+        emojiP.innerHTML += "🥞 "
+      }
+
+      document.body.appendChild(emojiP);
     }
+
 </script>
 </html>
