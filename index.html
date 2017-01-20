@@ -19,6 +19,15 @@
         background-color: #4CAF50;
     }
 
+    h1{
+      margin-top: 20px;
+      font-size: 200%;
+    }
+
+    footer {
+      margin-top: 100px;
+    }
+
     .cm{
       margin-top: 50px;
     }
@@ -34,6 +43,8 @@
 </head>
 
 <body>
+  <h1>Calculate your height in pancakes!</h1>
+
     <div class="cm">
         Height (cm)<br>
         <input type="number" id="height"><br>
@@ -56,6 +67,10 @@
         <button onclick="pancakeFeet(parseInt(document.getElementById('feet').value),
         parseInt(document.getElementById('inches').value))">Pancake Me!</button>
     </div>
+
+    <footer>
+      Made with ❤️ in London
+    </footer>
 </body>
 
 <script>
@@ -63,6 +78,7 @@
         var pHeight = (height / 1.7).toFixed(1);
         document.body.innerHTML = "";
         document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
+        tweet(pHeight);
     }
 
     function pancakeFeet(f, i) {
@@ -70,6 +86,16 @@
         var pHeight = (height / 1.7).toFixed(2);
         document.body.innerHTML = "";
         document.body.innerHTML = "You are " + pHeight + " American style pancakes tall!";
+        tweet(pHeight);
+    }
+
+    function tweet(pHeight){
+      var twitterUrl = "twitter.com/home?status=I am " + pHeight + " pancakes tall! Via http://abdulajet.me/pancakeme by @abdulajet";
+      twitterUrl = encodeURI(twitterUrl);
+
+      var p = document.createElement('p');
+      p.innerHTML += "<a href='https://" + twitterUrl + "'>Tweet this</a>"
+      document.body.appendChild(p);
     }
 </script>
 </html>
